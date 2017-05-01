@@ -1,12 +1,13 @@
 <?php
 
 	require '../db/conectar.php';
+
 	class Estudiante{
+
 		//Atributos
-		private $nrodocumento;
-		private $nombres;
-		private $apellidos;
-		private $correo;
+		private $password;
+		private $user;
+
 		//se crea la conexión
 		private $con;
 
@@ -16,24 +17,14 @@
 		}
 
 		//metodos get and set
-		public function setDocumento($nrodoc)
+		public function setPassword($password)
 		{
-			$this -> nrodocumento = $nrodoc;
+			$this -> password = $password;
 		}
 
-		public function setNombres($nomb)
+		public function setUser($user)
 		{
-			$this -> nombres = $nomb;
-		}
-
-		public function setApellidos($ape)
-		{
-			$this -> apellidos = $ape;
-		}
-
-		public function setCorreo($email)
-		{
-			$this -> correo = $email;
+			$this -> user = $user;
 		}
 
 		public function registrarEstudiante(){
@@ -55,14 +46,15 @@
 
 		public function consultarEstudiante(){
 
-			$sql = "SELECT NroDocumento, Nombres, Apellidos FROM tblestudiantes WHERE NroDocumento='$this->nrodocumento'";
+			$sql = "SELECT * FROM ESTUDIANTES WHERE Password='$this->password'";
+
 			$result = $this ->con->query($sql);
 
-			if ($result->num_rows > 0) {
+			if ($result) {
 
 					// output data of each row
 			    while($row = $result->fetch_assoc()) {
-			        echo "NroDocumento: " . $row["NroDocumento"]. " - Name: " . $row["Nombres"]. " " . $row["Apellidos"]. "<br>";
+			        echo "Nombre: " . $row["Nombres"]. "<br>";
 			    }
 			} else {
 			    echo "0 results";
