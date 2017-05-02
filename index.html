@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Sitio web presentado como proyecto para el curso PHP del ITM y para
+  la IE LUIS EDUARDO PEREZ MOLINA">
+  <meta name="author" content="JOGO DEV">
   <title>I.E. Luis Eduardo Pérez Molina | Home</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/animate.min.css" rel="stylesheet">
@@ -19,7 +20,8 @@
     <script src="js/respond.min.js"></script>
   <![endif]-->
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <!-- BUG: problemas con el lint para comillas simples -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="images/favicon.ico">
 </head><!--/head-->
 
@@ -80,7 +82,7 @@
             <li class="scroll"><a href="#about-us">Sobre nosotros</a></li>
             <li class="scroll"><a href="#blog">Blog</a></li>
             <li class="scroll"><a href="#contact">Contacto</a></li>
-            <li class="scroll"><a href="https://login.master2000.net/ingreso/" target="_blank">Master 2000</a></li>
+            <li class="scroll"><a href="https://login.master2000.net/ingreso/index.php?AB=816beb5e5244c367d42277a382e2737e&DC=816beb5e5244c367d42277a382e2737e" target="_blank">Master 2000</a></li>
             <li class="scroll"><a href="../Colegio_LEP_PHP/views/frm_estudiante.html">Log In</a></li>
           </ul>
         </div>
@@ -156,6 +158,7 @@
         </div>
       </div>
     </div>
+  </section>
   <section id="features" class="parallax">
     <div class="container">
       <div class="row count">
@@ -214,6 +217,7 @@
   </section><!--/#twitter-->
 
   <section id="contact">
+    <!-- QUESTION: verificar por que al momento de abrir con apache se presentan fallas-->
     <div id="google-map" class="wow fadeIn" data-latitude="6.435142275810027" data-longitude="-75.32912196459576" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
     <div id="contact-us" class="parallax">
       <div class="container">
@@ -226,6 +230,7 @@
         <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
           <div class="row">
             <div class="col-sm-6">
+              <!-- TODO: Enviar de manera adeuada el formulario al e-mail -->
               <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
                 <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="col-sm-6">

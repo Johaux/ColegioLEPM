@@ -46,20 +46,29 @@
 
 		public function consultarEstudiante(){
 
-			$sql = "SELECT * FROM ESTUDIANTES WHERE Password='$this->password'";
+			$sql = "SELECT * FROM ESTUDIANTES WHERE Password='$this->password' AND Usuario='$this->user'";
 
 			$result = $this ->con->query($sql);
 
-			if ($result) {
+			if ($result ->num_rows > 0) {
 
 					// output data of each row
-			    while($row = $result->fetch_assoc()) {
-			        echo "Nombre: " . $row["Nombres"]. "<br>";
-			    }
+			    // while($row = $result->fetch_assoc()) {
+			    //     echo "Nombre: " . $row["Nombres"]. "<br>";
+			    // }
+
+					// TODO: Aplicar session a la vista que se generará y dejar visible por 3 minutos.
+					// redireccionamiento a página en solo vista de calificaciones.
+					header("location:../views/ratings.html");
+
 			} else {
-			    echo "0 results";
+			    echo "Clave o usuario inválido";
 			}
-			//$con->close();
+			// QUESTION: Consultar el motivo por el cual no cierra la conexión.
+			// TODO: aplicar cierre de conexión
+			//mysqli_close($this->$con);
+			//$this->$con->close();
+
 		}
 
 		public function borrarEstudiante(){
