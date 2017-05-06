@@ -43,6 +43,9 @@ h3 {
 
 .parallax input[type="text"],
 .parallax input[type="text"]:hover,
+.parallax select,
+.parallax select:hover,
+.parallax input[type="text"]:hover,
 .parallax input[type="email"],
 .parallax input[type="email"]:hover,
 .parallax input[type="url"],

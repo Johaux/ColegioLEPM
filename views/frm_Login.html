@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>LogIn | Usuarios</title>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/animate.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/lightbox.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+  <link id="css-preset" href="../css/presets/preset1.css" rel="stylesheet">
+  <link href="../css/responsive.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="login-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms" style="width:500px; margin:auto;" >
+    <div class="jumbotron text-center">
+    <h1>LogIn</h1>
+    I.E. LUIS EDUARDO PEREZ MOLINA
+    </div>
+    <div class="row">
+      <div class="col-sm-9">
+        <!-- <form id="main-contact-form" name="contact-form" method="post" action="../controlers/consultorUsuario.php"> -->
+        <form name="contact-form" method="post" action="../controlers/consultorUsuario.php">
+          <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="col-sm-pull-6">
+              <div class="form-group">
+                <input type="text" name="user" class="form-control" placeholder="Usuario" required="required">
+              </div>
+            </div>
+            <div class="col-sm-pull-6">
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Contraseña" required="required">
+              </div>
+            </div>
+            <div class="col-sm-pull-6">
+            <div class="form-group">
+              <select name="position" class="form-control">
+                  <option value="3">Estudiante</option>
+                  <option value="2">Docente</option>
+                  <option value="1">Administrativo</option>
+              </select>
+            </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn-submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <h1 style="color:blue">Registro de estudiantes</h1>
+		<form method="post" action="../controlador/controladorEstudiante.php">
+			<label>Documento</label><br>
+			<input type="number" name="nrodoc" required="required"><br>
+			<label>Nombres</label><br>
+			<input type="text" name="nombres" required="required"><br>
+			<label>Apellidos</label><br>
+			<input type="text" name="apellidos" required="required"><br>
+			<label>Correo</label><br>
+			<input type="email" name="correo" required="required"><br>
+
+			<input type="submit" name="enviar" value="Registrar"><br>
+
+		</form>
+
+		<form class="" action="../controlador/consultorEstudiante.php" method="post">
+			<label>Consulta los Estudiantes por Número de Documento</label><br>
+			<input type="number" name="nrodoc" required="required"><br>
+
+			<input type="submit" name="enviar" value="Consultar"><br>
+		</form>
+
+		<form class="" action="../controlador/borrarEstudiante.php" method="post">
+			<label>Borra los Estudiantes por Número de Documento</label><br>
+			<input type="number" name="nrodoc" required="required"><br>
+
+			<input type="submit" name="enviar" value="Borrar"><br>
+		</form>
+		<form class="" action="../controlador/actualizarEstudiante.php" method="post">
+			<label>Actualiza los Estudiantes por Número de Documento</label><br>
+			<input type="number" name="nrodoc" required="required"><br>
+			<label>Apellidos</label><br>
+			<input type="text" name="apellidos" required="required"><br>
+
+
+			<input type="submit" name="enviar" value="Actualizar"><br>
+		</form> -->
+
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="../js/jquery.inview.min.js"></script>
+  <script type="text/javascript" src="../js/wow.min.js"></script>
+  <script type="text/javascript" src="../js/mousescroll.js"></script>
+  <script type="text/javascript" src="../js/smoothscroll.js"></script>
+  <script type="text/javascript" src="../js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="../js/lightbox.min.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+
+</body>
+
+</html>
