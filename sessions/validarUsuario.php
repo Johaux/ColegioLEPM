@@ -1,9 +1,8 @@
 <?php
 
 	require '../db/conectar.php';
-	// TODO: Llevar este documento y todos sus enlaces a la carpeta de Sessions
 
-	class Estudiante{
+	class Usuario{
 
 		//Atributos
 		private $password;
@@ -40,7 +39,7 @@
 			{
 				//echo gettype((int)$_POST['position']);
 
-				$sql = "SELECT * FROM ESTUDIANTES WHERE Password='$this->password'
+				$sql = "SELECT * FROM USUARIOS WHERE Password='$this->password'
 				AND Usuario='$this->user' AND Id_Tipo_Usuario=$this->position";
 
 				$result = $this ->con->query($sql);
@@ -48,6 +47,7 @@
 					if ($result ->num_rows > 0) {
 						// output data of each row
 				    while($row = $result->fetch_assoc()) {
+
 							//echo $_POST['password']. " ==: " . $row["Password"]. $_POST['user']. " - Name: " . $row["Usuario"]. $_POST['position'] . " " . $row["Id_Tipo_Usuario"]. "<br>";
 								//valida exitencia de usuario en base de datos
 
@@ -62,6 +62,12 @@
 								    $_SESSION['user'] = $_POST['user'];
 								    $_SESSION['password'] = $_POST['password'];
 										$_SESSION['position'] = $_POST['position'];
+
+										$name = $row["Nombres"];
+										$_SESSION['nom'] = $name;
+										$lastName = $row["Apellidos"];
+										$_SESSION['ape'] = $lastName;
+
 								    $_SESSION['dTime'] = time();
 										header("refresh:1; url=../views/frm_Administrativos.php");
 
@@ -73,6 +79,12 @@
 								    $_SESSION['user'] = $_POST['user'];
 								    $_SESSION['password'] = $_POST['password'];
 										$_SESSION['position'] = $_POST['position'];
+
+										$name = $row["Nombres"];
+										$_SESSION['nom'] = $name;
+										$lastName = $row["Apellidos"];
+										$_SESSION['ape'] = $lastName;
+
 								    $_SESSION['dTime'] = time();
 										header("refresh:1; url=../views/frm_Docentes.php");
 
@@ -84,6 +96,12 @@
 								    $_SESSION['user'] = $_POST['user'];
 								    $_SESSION['password'] = $_POST['password'];
 										$_SESSION['position'] = $_POST['position'];
+
+										$name = $row["Nombres"];
+										$_SESSION['nom'] = $name;
+										$lastName = $row["Apellidos"];
+										$_SESSION['ape'] = $lastName;
+
 								    $_SESSION['dTime'] = time();
 										header("refresh:1; url=../views/frm_Estudiantes.php");
 								} else
@@ -91,7 +109,7 @@
 									  echo '<script language="javascript">';
 								    echo 'alert("datos incorrectos")';
 								    echo '</script>';
-								  //   //header("refresh:1; url=../views/frm_Login.html");
+								    header("refresh:1; url=../views/frm_Login.html");
 								}
 					  }
 					}

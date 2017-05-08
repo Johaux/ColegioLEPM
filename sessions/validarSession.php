@@ -10,9 +10,9 @@ if (!isset($_SESSION['user']))
   header("refresh:1; url=../Session1/index.php");
 }else {
 
-    echo '<script language="javascript">';
-    echo 'alert("Has iniciado sesion de manera adecuada")';
-    echo '</script>';
+    // echo '<script language="javascript">';
+    // echo 'alert("Has iniciado sesion de manera adecuada")';
+    // echo '</script>';
 }
 
 ?>

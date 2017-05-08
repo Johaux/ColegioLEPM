@@ -7,7 +7,7 @@
 	$position = $_POST['position'];
 
 	 //se crea un objeto del modelo
-	 $objEstudiante = new Estudiante();
+	 $objEstudiante = new Usuario();
 
    //se carga el objeto
 	 $objEstudiante -> setPassword($password);

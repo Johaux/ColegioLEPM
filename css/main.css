@@ -43,15 +43,16 @@ h3 {
 
 .parallax input[type="text"],
 .parallax input[type="text"]:hover,
-.parallax select,
-.parallax select:hover,
-.parallax input[type="text"]:hover,
 .parallax input[type="email"],
 .parallax input[type="email"]:hover,
+.parallax input[type="date"],
+.parallax input[type="date"]:hover,
 .parallax input[type="url"],
 .parallax input[type="url"]:hover,
 .parallax input[type="password"],
 .parallax input[type="password"]:hover,
+.parallax select,
+.parallax select:hover,
 .parallax textarea,
 .parallax textarea:hover {
   font-weight: 300;
@@ -856,10 +857,21 @@ section {
 
 #contact-us {
   background-image:url(../images/contact-bg.jpg);
+
   padding-bottom: 90px;
 }
 
 #contact-us .heading {
+  padding-top: 95px;
+}
+
+#insert-user {
+  background-image:url(../images/contact-bg.jpg);
+  background-color: #96183e;
+  padding-bottom: 90px;
+}
+
+#insert-user .heading {
   padding-top: 95px;
 }
 
