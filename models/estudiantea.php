@@ -163,6 +163,25 @@
 			}
 
 		}
+
+		public function buscarEstudiante(){
+
+			$sqlSelect = "SELECT NroDocumento, Nombres, Apellidos FROM tblestudiantes WHERE NroDocumento='$this->nrodocumento'";
+			$result = $this ->con->query($sqlSelect);
+
+			if ($result->num_rows > 0) {
+				$sql = "SELECT *  FROM tblestudiantes WHERE NroDocumento='$this->nrodocumento'";
+
+				if ($this ->con->query($sql)) {
+					echo "El estudiante fue eliminado de manera exitosa.";
+				} else {
+					echo "Error deleting record: " . $con->error;
+				}
+			} else {
+			    echo "No existe un estudiante con ese número de documento";
+			}
+
+		}
 	}
 
 ?>

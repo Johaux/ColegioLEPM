@@ -109,23 +109,7 @@
 					echo '</script>';
 				exit();
 			}
-		}
-
-		public function consultarUsuario(){
-
-			$sql = "SELECT NroDocumento, Nombres, Apellidos FROM USUARIOS WHERE Documento_Identidad='$this->nrodocumento'";
-			$result = $this ->con->query($sql);
-
-			if ($result->num_rows > 0) {
-
-					// output data of each row
-			    while($row = $result->fetch_assoc()) {
-			        echo "NroDocumento: " . $row["NroDocumento"]. " - Name: " . $row["Nombres"]. " " . $row["Apellidos"]. "<br>";
-			    }
-			} else {
-			    echo "0 results";
-			}
-			//$con->close();
+			$this ->con->close();
 		}
 
 		public function borrarUsuario(){
@@ -156,29 +140,60 @@
 				// echo "No existe un usuario con el documento $this->nrodocumento en nuestas bases datos";
 			}
 
-			//$con->close();
+			$this ->con->close();
 		}
 
 		public function actualizarUsuario(){
 
 
-			$sqlSelect = "SELECT NroDocumento, Nombres, Apellidos FROM tblestudiantes WHERE NroDocumento='$this->nrodocumento'";
+			$sqlSelect = "SELECT * FROM USUARIOS WHERE Documento_Identidad='$this->nrodocumento'";
 			$result = $this ->con->query($sqlSelect);
 
 			if ($result->num_rows > 0) {
 
-				$sql = "UPDATE tblestudiantes SET Apellidos='$this->apellidos' WHERE NroDocumento='$this->nrodocumento'";
+				$sql ="UPDATE `usuarios` SET `Password` = '12345', `Direccion` = 'Cr 52 64 10'
+				WHERE `usuarios`.`Id_Usuario` = 3 WHERE NroDocumento='$this->nrodocumento";
 
 				if ($this ->con->query($sql) === TRUE) {
-					echo "El estudiante fue eliminado de manera exitosa.";
+					echo '<script language="javascript">';
+					echo 'alert("los datos fueron actualizados!.")';
+					echo '</script>';
+					header("refresh:1; url=../views/frm_deleteUser.php");
+
 				} else {
-					echo "Error updating record: " . $conn->error;
+					echo '<script language="javascript">';
+					echo 'alert("El usuario NO existe en nuestra base de datos!."'. $conn->error')';
+					echo '</script>';
+					header("refresh:1; url=../views/frm_deleteUser.php");
+
+					//echo "Error updating record: " . $conn->error;
 				}
 			} else {
-			    echo "No existe un estudiante con ese número de documento";
+			    echo "No existe un USUARIO con ese número de documento";
 			}
-
+			$this ->con->close();
 		}
-	}
 
+		public function buscarUsuario(){
+
+			$sql = "SELECT * FROM USUARIOS  WHERE Documento_Identidad='$this->nrodocumento'";
+			$result = $this ->con->query($sql);
+			$count = 0;
+
+			if ($result->num_rows > 0) {
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) {
+						echo "<h1>El usuario fue encontrado en nuesta base de datos con el nombre:</br></h1>";
+			        echo "Nombres:" . $row["Nombres"]." ". $row["Apellidos"]."<br>";
+							$count++;
+
+			    }
+			} else {
+			    echo "No existe un usuario con los datos registrados";
+			}
+			// TODO: Emplear para estadísticas
+			//echo "Cantidad de usuarios registrados: $count";
+			$this ->con->close();
+	}
+}
 ?>

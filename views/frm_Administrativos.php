@@ -41,8 +41,8 @@
               <li class="scroll"><a href="#services">Institución</a></li>
               <li class="scroll"><a href="../views/frm_createUser.php" title="Registrar nuevo usuario">Agregar</a></li>
               <li class="scroll"><a href="../views/frm_deleteUser.php">Eliminar</a></li>
-              <li class="scroll"><a href="#insert">Consultar</a></li>
-              <li class="scroll"><a href="#insert" title="Actualizar datos de usuario">Actualizar</a></li>
+              <li class="scroll"><a href="../views/frm_findUser.php" title="Consulta existencia de usuarios">Consultar</a></li>
+              <li class="scroll"><a href="../views/frm_updateUser.php" title="Actualizar datos de usuario">Actualizar</a></li>
               <li class="scroll"><a href="https://login.master2000.net/" target="_blank">Master 2000</a></li>
               <li class="scroll"><a href="../Sessions/salidaSegura.php">Salida Segura</a></li>
             </ul>

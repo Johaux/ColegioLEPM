@@ -37,8 +37,7 @@
 
 			if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['position']))
 			{
-				//echo gettype((int)$_POST['position']);
-
+				
 				$sql = "SELECT * FROM USUARIOS WHERE Password='$this->password'
 				AND Usuario='$this->user' AND Id_Tipo_Usuario=$this->position";
 
