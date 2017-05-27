@@ -104,7 +104,7 @@
 
                 </form>
                 <div class="form-group">
-                  <form id="contact-form" name="insert-user" method="post" action="../controlers/allUsers.php">
+                  <form id="contact-form" name="insert-user" method="post" action="../controlers/allStudents.php">
                     <div class="form-group">
                       <button type="submit" class="btn-submit">Listar Todos!</button>
                     </div>

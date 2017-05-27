@@ -1,3 +1,55 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BUSCR USUARIOS</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/lightbox.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link id="css-preset" href="../css/presets/preset1.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/menu.css">
+
+    <style media="screen">
+
+    </style>
+
+  </head>
+  <body>
+
+    <header id="home">
+      </div><!--/#home-slider-->
+      <div class="main-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+              <h1><img class="img-responsive" src="../images/logo.png" alt="logo"></h1>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="scroll active"><a href="../index.html">Inicio</a></li>
+              <li class="scroll"><a href="#services">Institución</a></li>
+              <li><a href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a></li>
+              <li class="scroll"><a href="https://login.master2000.net/" target="_blank">Master 2000</a></li>
+              <li class="scroll"><a href="../Sessions/salidaSegura.php">Salida Segura</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!--/#main-nav-->
+    </header><!--/#home-->
+
+    <section>
+
+
 <?php
 
 	require '../db/conectar.php';
@@ -162,7 +214,7 @@
 
 				} else {
 					echo '<script language="javascript">';
-					echo 'alert("El usuario NO existe en nuestra base de datos!."'. $conn->error')';
+					echo 'alert("El usuario NO existe en nuestra base de datos!.")';
 					echo '</script>';
 					header("refresh:1; url=../views/frm_deleteUser.php");
 
@@ -189,11 +241,82 @@
 
 			    }
 			} else {
+
 			    echo "No existe un usuario con los datos registrados";
 			}
 			// TODO: Emplear para estadísticas
 			//echo "Cantidad de usuarios registrados: $count";
 			$this ->con->close();
 	}
+
+	public function listarTodos(){
+
+		$sql = "SELECT * FROM USUARIOS";
+		$result = $this ->con->query($sql);
+		$count = 0;
+
+		if ($result->num_rows > 0) {
+				// output data of each row
+				echo "<h1>El usuario fue encontrado en nuesta base de datos con el nombre:</br></h1>";
+
+				while($row = $result->fetch_assoc()) {
+						echo "Nombres:" . $row["Nombres"]." ". $row["Apellidos"]."<p>";
+						$count++;
+				}
+				echo "<h2>Se encontraron $count usuarios en nuestro sistema</h2>";
+		} else {
+      echo '<script language="javascript">';
+      echo 'alert("La consulta no tuvo exito o no hay ningún usuario registrado!.")';
+      echo '</script>';
+      header("refresh:1; url=../views/frm_Administrativos.php");
+		}
+
+		// TODO: Emplear para estadísticas
+		//echo "Cantidad de usuarios registrados: $count";
+		$this ->con->close();
+}
+public function listarEstudiantes(){
+
+  $sql = "SELECT * FROM USUARIOS WHERE Id_Tipo_Usuario=4";
+  $result = $this ->con->query($sql);
+  $count = 0;
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      echo "<h1>El usuario fue encontrado en nuesta base de datos con el nombre:</br></h1>";
+
+      while($row = $result->fetch_assoc()) {
+          echo "Nombres:" . $row["Nombres"]." ". $row["Apellidos"]."<p>";
+          $count++;
+      }
+      echo "<h2>Se encontraron $count usuarios en nuestro sistema</h2>";
+  } else {
+    echo '<script language="javascript">';
+    echo 'alert("La consulta no tuvo exito o no hay ningún usuario registrado!.")';
+    echo '</script>';
+    header("refresh:1; url=../views/frm_Docentes.php");
+  }
+
+  // TODO: Emplear para estadísticas
+  //echo "Cantidad de usuarios registrados: $count";
+  $this ->con->close();
+}
 }
 ?>
+</section>
+
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.inview.min.js"></script>
+<script type="text/javascript" src="../js/wow.min.js"></script>
+<script type="text/javascript" src="../js/mousescroll.js"></script>
+<script type="text/javascript" src="../js/smoothscroll.js"></script>
+<script type="text/javascript" src="../js/jquery.countTo.js"></script>
+<script type="text/javascript" src="../js/lightbox.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
+</body>
+</html>
