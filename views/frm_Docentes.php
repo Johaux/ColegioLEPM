@@ -36,7 +36,11 @@
     <?php
     require "../sessions/validarSession.php";
     echo "<h1>Bienvenido:".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
-
+    if (isset($_COOKIE['time']))
+      $time = $_COOKIE['time'];
+    else
+    echo "welcome";       
+    echo "Tu ultima conexion fue: " .$time."<br>";
     echo "ID de sesion: ".session_id();
 
     //sino, calculamos el tiempo transcurrido

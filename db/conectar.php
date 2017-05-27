@@ -5,7 +5,7 @@
 
 			//el mysql recibe: nombre de servidor, nombre de usuario
 			//, clave, y nombre de BD
-			$con = new mysqli('localhost','johan','123456789','db_colegio_lepm');
+			$con = new mysqli('localhost','jorge','jorge12--','db_colegio_lepm');
 
 			if($con ->connect_error)
 			{

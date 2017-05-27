@@ -7,10 +7,8 @@
   <body>
     <?php
     //echo "Hello World";
-    setcookie('cookie1','Hola',time()+60*60*24);
-    if (isset($_COOKIE['cookie1']))
-      print "La cookie tiene el valor de : ".$_COOKIE('cookie1');
-
+    $initime = 365*60*60*24 + time();
+    setcookie('time', date('d-m-y H:i:s'), $initime);
       // NOTE:  como eliminar el contenido de una cookie
       //setcookie('cookie1');
      ?>
