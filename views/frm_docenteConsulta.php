@@ -52,11 +52,7 @@
           <?php
           require "../sessions/validarSession.php";
           echo "<h1>Bienvenido:".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
-          if (isset($_COOKIE['time']))
-            $time = $_COOKIE['time'];
-          else
-          echo "welcome";       
-          echo "Tu ultima conexion fue: " .$time."<br>";
+
           echo "ID de sesion: ".session_id();
 
           //sino, calculamos el tiempo transcurrido
@@ -108,7 +104,7 @@
 
                 </form>
                 <div class="form-group">
-                  <form id="contact-form" name="insert-user" method="post" action="../controlers/allUsers.php">
+                  <form id="contact-form" name="insert-user" method="post" action="../controlers/allStudents.php">
                     <div class="form-group">
                       <button type="submit" class="btn-submit">Listar Todos!</button>
                     </div>
