@@ -5,8 +5,8 @@ require_once("src/jpgraph_bar.php");
 
 
 //ejemplo datos a graficar
-$datos_X = array('dato1','dato2','dato3','dato4','dato5');
-$datos_Y = array(35,65,120.250,300);
+$datos_X = array('Estudiantes','Docentes','Administrativos');
+$datos_Y = array(35,65,120);
 
 
 //se crea un objeto con el tamaño del graph
