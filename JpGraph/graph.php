@@ -52,5 +52,4 @@ $grafica->Add($barras);
 $grafica->Stroke();
 
 
-
  ?>
