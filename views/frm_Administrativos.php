@@ -89,8 +89,8 @@
 
       ?>
     </p>
-      <button type="button" name="graficos"><a href="graph.php">Graficos</a></button>
-      
+      <button type="button" name="graficos"><a href="../JpGraph/graph.php">Graficos</a></button>
+
 </section>
 
 
