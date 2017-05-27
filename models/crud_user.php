@@ -226,6 +226,37 @@
 			$this ->con->close();
 		}
 
+    public function actualizarEstudiante(){
+
+
+      $sqlSelect = "SELECT * FROM USUARIOS WHERE Documento_Identidad='$this->nrodocumento'";
+      $result = $this ->con->query($sqlSelect);
+
+      if ($result->num_rows > 0) {
+
+        $sql ="UPDATE `usuarios` SET `Password` = '12345', `Direccion` = 'Cr 52 64 10'
+        WHERE `usuarios`.`Id_Usuario` = 3 WHERE NroDocumento='$this->nrodocumento";
+
+        if ($this ->con->query($sql) === TRUE) {
+          echo '<script language="javascript">';
+          echo 'alert("los datos fueron actualizados!.")';
+          echo '</script>';
+          header("refresh:1; url=../views/frm_deleteUser.php");
+
+        } else {
+          echo '<script language="javascript">';
+          echo 'alert("El usuario NO existe en nuestra base de datos!.")';
+          echo '</script>';
+          header("refresh:1; url=../views/frm_deleteUser.php");
+
+          //echo "Error updating record: " . $conn->error;
+        }
+      } else {
+          echo "No existe un USUARIO con ese número de documento";
+      }
+      $this ->con->close();
+    }
+
 		public function buscarUsuario(){
 
 			$sql = "SELECT * FROM USUARIOS  WHERE Documento_Identidad='$this->nrodocumento'";

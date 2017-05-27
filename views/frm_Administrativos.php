@@ -52,18 +52,20 @@
     </header><!--/#home-->
 
 <section>
+
       <?php
       require "../sessions/validarSession.php";
       require "../Cookies/cookies.php";
-      echo "<h1>Bienvenido:".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
+      echo "<h1>Bienvenido Administrador: </br>".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
 
 
       if (isset($_COOKIE['time']))
         $time = $_COOKIE['time'];
       else
-        echo "welcome";       
+        echo "welcome";
         echo "Tu ultima conexion fue: " .$time."<br>";
-      
+        // BUG: error al cargar cookie por primer vez
+
       echo "ID de sesion: ".session_id();
 
       //sino, calculamos el tiempo transcurrido
@@ -84,10 +86,12 @@
         //sino, actualizo la fecha de la sesión
         $_SESSION["ultimoAcceso"] = $ahora;
       }
+
       ?>
+    </p>
+      <button type="button" name="graficos"><a href="graph.php">Graficos</a></button>
+      
 </section>
-
-
 
 
     <footer id="footer">

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>BUSCR USUARIOS</title>
+    <title>CREAR USUARIOS</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/animate.min.css" rel="stylesheet">
@@ -51,18 +51,12 @@
     <section>
           <?php
           require "../sessions/validarSession.php";
-          require "../Cookies/cookies.php";
-          echo "<h1>Bienvenido Docente: </br>".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
-
-
-                if (isset($_COOKIE['time']))
-                  $time = $_COOKIE['time'];
-                else
-                  echo "welcome";
-                  echo "Tu ultima conexion fue: " .$time."<br>";
-                  // BUG: error al cargar cookie por primer vez
-
-
+          echo "<h1>Bienvenido:".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
+          if (isset($_COOKIE['time']))
+            $time = $_COOKIE['time'];
+          else
+          echo "welcome";
+          echo "Tu ultima conexion fue: " .$time."<br>";
           echo "ID de sesion: ".session_id();
 
           //sino, calculamos el tiempo transcurrido
@@ -72,12 +66,11 @@
 
           if ($tiempo_transcurrido >= 60) {
 
-            // TODO: habilitar el direccionamiento a inicio antes de realizar la entrega del trabajo
             // BUG: Evaluar por que no se arroja el mensaje de anuncio de salida del sitio web
             echo '<script language="javascript">';
             echo 'alert("Tiempo de Sesión excedido.")';
             echo '</script>';
-            //header("location:../index.html");
+            header("location:../index.html");
 
           }else {
             //sino, actualizo la fecha de la sesión
@@ -92,34 +85,75 @@
         <div class="container">
           <div class="row">
             <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-              <h2>BUSCAR USUARIO</h2>
-              <p>Por favor ingresar los datos completos para registrar de manera adecuada al nuevo usuario</p>
+              <h2>ACTUALIZA LOS DATOS DEL USUARIO</h2>
+              <p>Por favor ingresar los datos completos para registrar de manera adecuada la actualización del usuario</p>
             </div>
           </div>
           <!-- <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
               <div class="col-sm-12"> -->
-                <form id="contact-form" name="insert-user" method="post" action="../controlers/findUsers.php">
+                <form id="contact-form" name="insert-user" method="post" action="../controlers/updatetStudent.php">
                   <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                   </div>
-
+                  <div class="form-group">
+                    <p>Ingresa los nombres:</p>
+                    <input type="text" name="nombres" class="form-control"  required="required">
+                  </div>
+                  <div class="form-group">
+                    <p>Ingresa los apellidos:</p>
+                    <input type="text" name="apellidos" class="form-control" required="required">
+                  </div>
                   <div class="form-group">
                     <p>Documento de Identidad</p>
-                    <input type="text" name="documento-identidad" class="form-control" required="required">
+                    <input type="text" name="documento-identidad" class="form-control" required="required"
+                    title="EL DOCUMENTO DE INDENTIDAD NO PUEDE SER MODIFICADOS, LA ACTUALIZACIÓN SE REALIZA SOBRE ESTE VALOR.">
                   </div>
-
                   <div class="form-group">
-                    <button type="submit" class="btn-submit">Buscar</button>
+                    <p>Ingresa el Tipo de Documento de Identidad</p>
+                    <select name="tipo-documento" class="form-control" required="required">
+                        <option value="3">Cédula</option>
+                        <option value="2">Tarjeta de Identidad</option>
+                        <option value="1">Cédula de Extranjería</option>
+                        <option value="1">Pasaporte</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    Fecha de nacimiento
+                    <input type="date" name="birth-date" class="form-control" required="required">
+                  </div>
+                  <div class="form-group">
+                    Dirección
+                    <input type="text" name="direccion" class="form-control" required="required">
+                  </div>
+                  <div class="form-group">
+                    Teléfono
+                    <input type="text" name="telefono" class="form-control" required="required">
+                  </div>
+                  <div class="form-group">
+                    <p>E-mail</p>
+                    <input type="email" name="mail" class="form-control" required="required">
+                  </div>
+                  <div class="form-group">
+                    <p>Registre Usuario</p>
+                    <input type="text" name="user" class="form-control" required="required">
+                  </div>
+                  <div class="form-group">
+                    <p>Registre Contraseña</p>
+                    <input type="password" name="password" class="form-control" required="required">
+                  </div>
+                  <div class="form-group">
+                    <p>Tipo de Usuario</p>
+                    <select name="tipo-usuario" class="form-control" required="required">
+                        <option value="3">Alumno</option>
+                        <option value="2">Docente</option>
+                        <option value="1">Administrativo</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn-submit">Modificar</button>
                   </div>
 
                 </form>
-                <div class="form-group">
-                  <form id="contact-form" name="insert-user" method="post" action="../controlers/allStudents.php">
-                    <div class="form-group">
-                      <button type="submit" class="btn-submit">Listar Todos!</button>
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
           <!-- </div>

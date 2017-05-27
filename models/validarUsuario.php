@@ -47,14 +47,12 @@
 					if ($result ->num_rows > 0) {
 						// output data of each row
 				    while($row = $result->fetch_assoc()) {
-							//echo $_POST['password']. " ==: " . $row["Password"]. $_POST['user']. " - Name: " . $row["Usuario"]. $_POST['position'] . " " . $row["Id_Tipo_Usuario"]. "<br>";
-								//valida exitencia de usuario en base de datos
 
 								// 	// TODO: Aplicar session a la vista que se generará y dejar visible por 3 minutos.
 								// 	// redireccionamiento a página en solo vista de calificaciones.
 
 					  		if ($_POST['user']==$row["Usuario"] && $_POST['password']==$row["Password"]
-								&& $_POST["position"]==1)
+								&& $_POST["position"]==3)
 					  		{
 									  //Crear session
 								    session_start();
@@ -76,7 +74,7 @@
 										header("refresh:1; url=../views/frm_Docentes.php");
 
 								} else if ($_POST['user']==$row["Usuario"] && $_POST['password']==$row["Password"]
-								&& $_POST["position"]==3)
+								&& $_POST["position"]==4)
 								{
 
 										session_start();
@@ -88,9 +86,9 @@
 								} else
 								{
 									  echo '<script language="javascript">';
-								    echo 'alert("datos incorrectos")';
+								    echo 'alert("datos incorrectos de usuario")';
 								    echo '</script>';
-								  //   //header("refresh:1; url=../views/frm_Login.html");
+								    header("refresh:1; url=../views/frm_Login.html");
 								}
 					  }
 					}

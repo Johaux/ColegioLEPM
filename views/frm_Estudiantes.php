@@ -36,7 +36,7 @@
 						<li class="scroll active"><a href="../index.html">Inicio</a></li>
 						<li class="scroll"><a href="#services">Institución</a></li>
 						<li class="scroll"><a href="#insert">Consultar</a></li>
-						<li class="scroll"><a href="#insert">Actualizar Datos</a></li>
+						<li class="scroll"><a href="../views/frmUpdateStudent.php">Actualizar tus Datos</a></li>
 						<li class="scroll"><a href="https://login.master2000.net/" target="_blank">Master 2000</a></li>
 						<li class="scroll"><a href="../Sessions/salidaSegura.php">Salida Segura</a></li>					</ul>
 				</div>
@@ -44,16 +44,19 @@
 		</div><!--/#main-nav-->
 	</header><!--/#home-->
 
-		<h1>Hola Estudiantes</h1>
 
 		<?php
 		require "../sessions/validarSession.php";
-		echo "<h1>Bienvenido:".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
+		require "../Cookies/cookies.php";
+
+		echo "<h1>Bienvenido Estudiante: </br>".$_SESSION['nom'] . " " . $_SESSION['ape'] . "</h1>";
+
 			if (isset($_COOKIE['time']))
             $time = $_COOKIE['time'];
           else
-          echo "welcome";       
+          echo "welcome";
           echo "Tu ultima conexion fue: " .$time."<br>";
+
 		echo "ID de sesion: ".session_id();
 
 		//sino, calculamos el tiempo transcurrido
@@ -63,11 +66,9 @@
 
     //sino, calculamos el tiempo transcurrido
     $fechaGuardada = $_SESSION["dTime"];
-    echo "$fechaGuardada"."<br>";
     $ahora = time();
-    echo "$ahora"."<br>";
+
     $tiempo_transcurrido = $ahora-$fechaGuardada;
-    echo "$tiempo_transcurrido"."<br>";
 
     if ($tiempo_transcurrido >= 60) {
 
@@ -82,46 +83,6 @@
       $_SESSION["ultimoAcceso"] = $ahora;
     }
     ?>
-    <button onclick="location.href = '../Sessions/salidaSegura.php'"> Salida Segura</button>
-
-		<!-- <h1 style="color:blue">Registro de estudiantes</h1>
-		<form method="post" action="../controlador/controladorEstudiante.php">
-			<label>Documento</label><br>
-			<input type="number" name="nrodoc" required="required"><br>
-			<label>Nombres</label><br>
-			<input type="text" name="nombres" required="required"><br>
-			<label>Apellidos</label><br>
-			<input type="text" name="apellidos" required="required"><br>
-			<label>Correo</label><br>
-			<input type="email" name="correo" required="required"><br>
-
-			<input type="submit" name="enviar" value="Registrar"><br>
-
-		</form>
-
-		<form class="" action="../controlador/consultorEstudiante.php" method="post">
-			<label>Consulta los Estudiantes por Número de Documento</label><br>
-			<input type="number" name="nrodoc" required="required"><br>
-
-			<input type="submit" name="enviar" value="Consultar"><br>
-		</form>
-
-		<form class="" action="../controlador/borrarEstudiante.php" method="post">
-			<label>Borra los Estudiantes por Número de Documento</label><br>
-			<input type="number" name="nrodoc" required="required"><br>
-
-			<input type="submit" name="enviar" value="Borrar"><br>
-		</form>
-		<form class="" action="../controlador/actualizarEstudiante.php" method="post">
-			<label>Actualiza los Estudiantes por Número de Documento</label><br>
-			<input type="number" name="nrodoc" required="required"><br>
-			<label>Apellidos</label><br>
-			<input type="text" name="apellidos" required="required"><br>
-
-
-			<input type="submit" name="enviar" value="Actualizar"><br>
-		</form> -->
-
 
 		<footer id="footer">
 			<div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
